@@ -2,33 +2,44 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 #systemEquations 
+'''
+y1 = (B[0]-(A[0,0]*x_vals)+k)/A[0,1]
+y2 = (B[1]-(A[1,0]*x_vals)-A[1,2]*k)/A[1,1]
+y3 = (B[2]-(A[2,0]*x_vals)-k)/A[2,1]
 
-"""A = np.array([[-2,5,9],
+'''
+A = np.array([[-2,5,9],
               [7,1,1],
               [-3,7,-1]])
 
 #vectorSolution 
-B = np.array([1,6,-26])"""
+B = np.array([1,6,-26])
 
-A = np.array([[2,3,-1],
-              [-1,4,2],
-              [1,1,1]])
 
-B = np.array([7,2,4])
-
-solutionSystem = np.linalg.solve(A,B)
+# A = np.array([[2,3,-1],
+#               [-1,4,2],
+#               [1,1,1]])
+# B = np.array([7,2,4])
 
 x_vals = np.linspace(-5,5,100)
 y_vals = np.linspace(-5,5,100)
+k = 0.6
 
-plt.plot(x_vals, (7 + 2*x_vals + 3*y_vals), label='-2x + 5y + 9z = 1')
-plt.plot(x_vals, (2 - 1*x_vals + 4*y_vals), label='7x + y + z = 6')
-plt.plot(x_vals, (4 + 1*x_vals + y_vals), label='-3x + 7y - z = -26')
+y1 = (B[0]-(A[0,0]*x_vals)-A[0,2]*k)/A[0,1]
+y2 = (B[1]-(A[1,0]*x_vals)-A[1,2]*k)/A[1,1]
+y3 = (B[2]-(A[2,0]*x_vals)-A[2,2]*k)/A[2,1]
+print(-A[2,2])
+solutionSystem = np.linalg.solve(A,B)
+
+
+plt.plot(x_vals, y1, label='-2x + 5y + 9z = 1')
+plt.plot(x_vals, y2, label='7x + y + z = 6')
+plt.plot(x_vals, y3, label='-3x + 7y - z = -26')
 
 x_inter = solutionSystem[0]
 y_inter = solutionSystem[1]
-
-plt.scatter(x_inter, y_inter, c='red', marker='o', s=100)
+punto = 'Intersección ({},{})'.format(x_inter, round(y_inter,2))
+plt.scatter(x_inter, y_inter, c='red', marker='o', s=100, label=punto)
 
 plt.legend()
 plt.grid()
