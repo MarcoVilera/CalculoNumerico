@@ -1,19 +1,19 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
 
+A = np.array([[-2,5,9],
+              [7,1,1],
+              [-3,7,-1]])
 
-
-A = np.array([[-2 ,5 ,9 ],
-              [ 7 ,1 ,1 ],
-              [-3 ,7 -1 ]])
-
-
+#vectorSolution 
 B = np.array([1,6,-26])
 
 #A = np.array([[2,3,-1],
-#               [-1,4,2],
-#             [1,1,1]])
+#              [-1,4,2],
+ #             [1,1,1]])
+
 #B = np.array([7,2,4])
+
 
 x_vals = np.linspace(-5,5,100)
 y_vals = np.linspace(-5,5,100)
