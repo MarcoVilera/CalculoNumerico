@@ -1,29 +1,24 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-#systemEquations 
-'''
-y1 = (B[0]-(A[0,0]*x_vals)+k)/A[0,1]
-y2 = (B[1]-(A[1,0]*x_vals)-A[1,2]*k)/A[1,1]
-y3 = (B[2]-(A[2,0]*x_vals)-k)/A[2,1]
 
-'''
-A = np.array([[-2,5,9],
-              [7,1,1],
-              [-3,7,-1]])
 
-#vectorSolution 
+A = np.array([[-2 ,5 ,9 ],
+              [ 7 ,1 ,1 ],
+              [-3 ,7 -1 ]])
+
+
 B = np.array([1,6,-26])
 
-
-# A = np.array([[2,3,-1],
+#A = np.array([[2,3,-1],
 #               [-1,4,2],
-#               [1,1,1]])
-# B = np.array([7,2,4])
+#             [1,1,1]])
+#B = np.array([7,2,4])
 
 x_vals = np.linspace(-5,5,100)
 y_vals = np.linspace(-5,5,100)
-k = 0.6
+k = 1.8
+
 
 y1 = (B[0]-(A[0,0]*x_vals)-A[0,2]*k)/A[0,1]
 y2 = (B[1]-(A[1,0]*x_vals)-A[1,2]*k)/A[1,1]
