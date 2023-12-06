@@ -1,0 +1,25 @@
+class Convertion():
+
+    def __init__(self,number):
+
+        self.number = number
+    
+    def decimalTobinary(self):
+
+        binaryArray = []
+
+        while self.number > 0:
+
+            binaryNumber = str(self.number%2)
+            binaryArray.append(binaryNumber)
+            finalConvert = list(reversed(binaryArray))
+
+            self.number = self.number // 2
+
+            result = ""
+            
+            for i in finalConvert:
+
+                result += i +""
+
+        return result
