@@ -9,6 +9,11 @@ class Convertion():
 
         binaryArray = []
         number = self.number
+
+        if number == 0:
+
+            return 0
+            
         while number > 0:
 
             binaryNumber = str(number%2)
