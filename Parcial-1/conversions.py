@@ -5,14 +5,15 @@ class Convertion():
 
         self.number = number
     
-    def decimalTobinary(self):
-
+    def decimalTobinary(self,bits=0):
+        if bits <= 0:
+            return '|No se puede alojar un número binario en bits negativos|'
+        
         binaryArray = []
         number = self.number
 
         if number == 0:
-
-            return 0
+            return '0'*bits if bits > 1 else '0'
             
         while number > 0:
 
@@ -27,6 +28,12 @@ class Convertion():
             for i in finalConvert:
 
                 result += i +""
+        
+        if len(result) < bits:
+            result = '0'*(bits-len(result)) + result
+
+        elif len(result) > bits:
+            result = result[:bits]
 
         return result
 
@@ -57,7 +64,8 @@ class Convertion():
 
 
 number = int(input('Ingresa un numero: '))
-binary = Convertion(number).decimalTobinary()
+bits = int(input('Ingresa la cantidad de bits para la conversión a binario: '))
+binary = Convertion(number).decimalTobinary(bits)
 octal = Convertion(number).decimaToOctal()
 hexadecimal = Convertion(number).decimaltoHex()
 
